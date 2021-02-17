@@ -12,6 +12,7 @@ import { HttpRequestInterceptor } from './helpers/http-request.interceptor';
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import { ErrorInterceptor } from './helpers/error.interceptor';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { LoginInterceptor } from './mock/interceptors/login.interceptor';
 
 @NgModule({
   declarations: [
@@ -19,15 +20,16 @@ import { NgxSpinnerModule } from "ngx-spinner";
   ],
   imports: [
     BrowserAnimationsModule,
+    SharedModule,
     AppRoutingModule,
     NgbModule,
-    SharedModule,
     NgxSpinnerModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt-BR'},
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: LoginInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })

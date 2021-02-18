@@ -27,7 +27,7 @@ export class LocationService {
   }
 
   getAddressByString(search: string): Observable<AddressModel> {
-    // https://maps.googleapis.com/maps/api/geocode/json?address=Quadra%2013%20Conjunto%20F,%2038&key=AIzaSyCI-kouZGksDAL00S63WtelfL51XSLYbuk
+    // https://maps.googleapis.com/maps/api/geocode/json?address=Quadra%2013%20Conjunto%20F,%2038&key=
     return this.http.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${search}&key=${environment.google_key}`)
       .pipe(
         map(response => this.formatAddress(response))

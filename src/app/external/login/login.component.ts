@@ -16,8 +16,8 @@ export class LoginComponent implements OnInit {
   validateFormControl = new FormControl('', [
     Validators.required,
     Validators.email,
-]);
-  constructor(private formBuilder: FormBuilder, private loginService: LoginService,  private router: Router) { 
+  ]);
+  constructor(private formBuilder: FormBuilder, private loginService: LoginService, private router: Router) {
     this.loginForm = this.formBuilder.group({
       user: ['', Validators.required],
       password: ['', Validators.required]
@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+
   }
 
   get f() { return this.loginForm.controls; }
@@ -35,10 +35,10 @@ export class LoginComponent implements OnInit {
 
     if (this.loginForm.invalid) {
       return;
-  }
+    }
 
     this.loginService.login(this.f.user.value, this.f.password.value).subscribe(result => {
-      if(Object.keys(result).length > 0) {
+      if (Object.keys(result).length > 0) {
         localStorage.setItem('currentUser', JSON.stringify(result));
         this.router.navigate(['/admin']);
       }
@@ -48,5 +48,5 @@ export class LoginComponent implements OnInit {
   reset() {
     this.submitted = false;
     this.loginForm.reset();
-}
+  }
 }

@@ -13,6 +13,9 @@ import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import { ErrorInterceptor } from './helpers/error.interceptor';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { LoginInterceptor } from './mock/interceptors/login.interceptor';
+import { AgmCoreModule } from '@agm/core';
+import { environment } from 'src/environments/environment';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +26,11 @@ import { LoginInterceptor } from './mock/interceptors/login.interceptor';
     SharedModule,
     AppRoutingModule,
     NgbModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    AgmCoreModule.forRoot({
+      apiKey: environment.google_key,
+      libraries: ['places']
+    })
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt-BR'},

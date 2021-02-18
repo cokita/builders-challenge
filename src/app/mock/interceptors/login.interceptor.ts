@@ -25,7 +25,7 @@ export class LoginInterceptor implements HttpInterceptor {
   constructor(private toastService: ToastService, private login: LoginService) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<any>> {
-    if(environment.mock && request.method === "POST" && request.url === "http://localhost:4200/login") {
+    if(environment.mock && request.method === "POST" && request.url === `${environment.endpoint_mock}/login`) {
       const body = Object.assign({password: null, user: null}, request.body);
       if(body && body.password == '123456' && body.user == 'builders') {
         return of(new HttpResponse({ status: 200, body: ResponseLogin }));

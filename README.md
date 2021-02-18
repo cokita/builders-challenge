@@ -1,6 +1,8 @@
 # Desafio Platform Builders
 
-Foi proposto um desafio pela Builders para mim, onde eu deveria desenvolver um SAP, em qualquer biblioteca, eu utilizei o Angular 11. 
+Foi proposto um desafio pela Builders para mim, onde eu deveria desenvolver um SAP, em qualquer biblioteca.
+<br>
+Eu utilizei o Angular 11. 
 
 Também utilizei para consultar a localização atual o Google Maps e para fazer a reversão (de latitude e longitude para endereço), utilizei o Geolocator do Google. Tentei usar a biblioteca sugerida para essa finalidade e os resultados não estavam sendo satisfatórios. Exemplo: Ao consultar as coordenadas que o Google me forneceu para o lugar onde eu moro (Sobradinho, Brasília, DF), a OpenWeather trouxe como resultado mais próximo Planaltina. Ao consultar pela cidade Sobradinho, a OpenWeather retornou as coordenadas: 
 
@@ -72,6 +74,7 @@ Para se autenticar no sistema, utilizar as credenciais (mockadas):
 username: builders
 senha: 123456
 ```
+Para não utilizar o sistema de mock, atualizar o endpoint no enviroments/enviroment.ts para o endpoint real e atribuir na variável mock o valor false.
 
 ## Localização
 <br>

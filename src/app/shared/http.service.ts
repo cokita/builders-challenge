@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { OptionsHttp } from '../models/options-http.model';
 import { LoginService } from '../external/login/login.service';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -43,17 +44,20 @@ export class HttpService {
     }
 
     public post(url:string, data:object, headers?:any): Observable<any> {
+        url = environment.mock ? `${environment.endpoint_mock}/${url}` : `${environment.endpoint}/${url}`;
         return this.http
             .post(`${url}`, data, this.getOptions(headers));
     }
 
     public remove(url:string): Observable<any> {
+        url = environment.mock ? `${environment.endpoint_mock}/${url}` : `${environment.endpoint}/${url}`; 
        this.getOptions();
         return this.http
             .delete(`${url}`, this.options);
     }
 
     public get(url:string, object?:object): Observable<any> {
+        url = environment.mock ? `${environment.endpoint_mock}/${url}` : `${environment.endpoint}/${url}`;
         this.getOptions();
         if(object) {
             this.setParamsOptions(object);
@@ -64,6 +68,7 @@ export class HttpService {
     }
 
     public update(url:string, object:object, headers?:any): Observable<any> {
+        url = environment.mock ? `${environment.endpoint_mock}/${url}` : `${environment.endpoint}/${url}`;
         this.getOptions(headers);
 
         return this.http

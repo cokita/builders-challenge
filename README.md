@@ -1,10 +1,16 @@
 # Desafio Platform Builders
 
-Foi proposto um desafio pela Builders para mim, onde eu deveria desenvolver um SAP, em qualquer biblioteca.
+Foi proposto um desafio pela Builders onde eu deveria desenvolver um SPA, em qualquer biblioteca.
 <br>
 Eu utilizei o Angular 11. 
 
-Também utilizei para consultar a localização atual o Google Maps e para fazer a reversão (de latitude e longitude para endereço), utilizei o Geolocator do Google. Tentei usar a biblioteca sugerida para essa finalidade e os resultados não estavam sendo satisfatórios. Exemplo: Ao consultar as coordenadas que o Google me forneceu para o lugar onde eu moro (Sobradinho, Brasília, DF), a OpenWeather trouxe como resultado mais próximo Planaltina. Ao consultar pela cidade Sobradinho, a OpenWeather retornou as coordenadas: 
+Também utilizei, para consultar a localização atual, o Google Maps e, para fazer a reversão (de latitude e longitude para endereço), utilizei o Geolocator do Google. 
+<br>
+Tentei usar a biblioteca sugerida para essa finalidade e os resultados não estavam sendo satisfatórios. 
+<br>
+Exemplo: Ao consultar as coordenadas que o Google me forneceu para o lugar onde eu moro (Sobradinho, Brasília, DF), a OpenWeather trouxe como resultado mais próximo a cidade de Planaltina (é uma cidade próxima à minha). 
+<bt>
+Ao consultar pela cidade Sobradinho, a OpenWeather retornou as coordenadas:
 
 ```
 [
@@ -32,15 +38,15 @@ geometry": {
 }
 ```
 
-Para evitar problemas maiores ao projeto, tomei a liberdade de mudar a biblioteca de consumo das informações.
+Para evitar problemas maiores ao projeto tomei a liberdade de mudar a biblioteca de consumo das informações.
 
-Para consultar as informações de tempo, utilizei a OpenWeather no seguinte endpoint: 
+Para consultar as informações de tempo utilizei a OpenWeather no seguinte endpoint: 
 
 `http://api.openweathermap.org/data/2.5/weather?q=Sobradinho,DF,BR&units=metric&lang=pt_br&appid=`
 
-Para recuperar a localização atual e busca de endereços, utilizei a biblioteca AGM (Angular Google Maps, `https://angular-maps.com/`).
+Para recuperar a localização atual e busca de endereços utilizei a biblioteca AGM (Angular Google Maps, `https://angular-maps.com/`).
 
-Para recuperar o endereço de acordo com as coordenadas, utilizei o geolocator: 
+Para recuperar o endereço de acordo com as coordenadas utilizei o geolocator: 
 
  `https://maps.googleapis.com/maps/api/geocode/json?latlng=-15.643182399999997,-47.785049699999995&key=`
 
